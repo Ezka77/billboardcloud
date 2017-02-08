@@ -1,0 +1,504 @@
+<ui version="4.0" >
+ <class>MyWindow</class>
+ <widget class="QMainWindow" name="MyWindow" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>831</width>
+    <height>639</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Billboard Clouds - For Extreme Model Simplification</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="application.qrc" >:/icones/filesystems/exec.png</iconset>
+  </property>
+  <property name="iconSize" >
+   <size>
+    <width>48</width>
+    <height>48</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget" />
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>831</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAffichage" >
+    <property name="title" >
+     <string>Affichage</string>
+    </property>
+    <widget class="QMenu" name="menuViewport" >
+     <property name="enabled" >
+      <bool>false</bool>
+     </property>
+     <property name="title" >
+      <string>Viewport</string>
+     </property>
+     <addaction name="actionGauche" />
+     <addaction name="actionDroite" />
+    </widget>
+    <addaction name="menuViewport" />
+    <addaction name="separator" />
+    <addaction name="actionMode_Normal" />
+    <addaction name="actionMode_SplitScreen" />
+    <addaction name="actionMode_Fusion" />
+    <addaction name="separator" />
+    <addaction name="actionAfficher_Cacher_le_Rep_re" />
+    <addaction name="actionWireMode" />
+    <addaction name="actionVider_la_Sc_ne" />
+    <addaction name="actionReset_Camera" />
+    <addaction name="actionSelecteur" />
+    <addaction name="separator" />
+    <addaction name="actionToggleFPS" />
+    <addaction name="actionInformation_Objet" />
+    <addaction name="separator" />
+    <addaction name="actionActiver_Desactiver_VBO" />
+   </widget>
+   <widget class="QMenu" name="menuDensite" >
+    <property name="title" >
+     <string>Densité</string>
+    </property>
+    <addaction name="actionCharger_la_Densite" />
+    <addaction name="separator" />
+    <addaction name="actionDensiteTex3D" />
+   </widget>
+   <widget class="QMenu" name="menuApplication" >
+    <property name="title" >
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionCharger_un_Maillage" />
+    <addaction name="actionChargerTexture" />
+    <addaction name="separator" />
+    <addaction name="actionSauvegarder" />
+    <addaction name="separator" />
+    <addaction name="actionQuit" />
+   </widget>
+   <widget class="QMenu" name="menuBillboard" >
+    <property name="enabled" >
+     <bool>false</bool>
+    </property>
+    <property name="title" >
+     <string>Billboard Cloud</string>
+    </property>
+    <addaction name="actionBillboard" />
+    <addaction name="actionBillboardCloud" />
+    <addaction name="separator" />
+    <addaction name="actionBoite_Englobante" />
+   </widget>
+   <addaction name="menuApplication" />
+   <addaction name="menuAffichage" />
+   <addaction name="menuDensite" />
+   <addaction name="menuBillboard" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <widget class="QToolBar" name="toolBar" >
+   <property name="windowModality" >
+    <enum>Qt::NonModal</enum>
+   </property>
+   <property name="font" >
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="cursor" >
+    <cursor>13</cursor>
+   </property>
+   <property name="layoutDirection" >
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="movable" >
+    <bool>true</bool>
+   </property>
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="iconSize" >
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle" >
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+   <attribute name="toolBarArea" >
+    <number>4</number>
+   </attribute>
+   <addaction name="actionCharger_un_Maillage" />
+   <addaction name="actionChargerTexture" />
+   <addaction name="actionSauvegarder" />
+   <addaction name="separator" />
+   <addaction name="actionAfficher_Cacher_le_Rep_re" />
+   <addaction name="actionWireMode" />
+   <addaction name="actionVider_la_Sc_ne" />
+   <addaction name="actionReset_Camera" />
+   <addaction name="actionSelecteur" />
+   <addaction name="separator" />
+   <addaction name="actionToggleFPS" />
+   <addaction name="actionInformation_Objet" />
+   <addaction name="separator" />
+   <addaction name="actionCharger_la_Densite" />
+   <addaction name="separator" />
+   <addaction name="actionBillboard" />
+   <addaction name="actionBillboardCloud" />
+  </widget>
+  <action name="actionCharger_un_Maillage" >
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/filesystems/folder.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Charger un Maillage</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionChargerTexture" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/filesystems/desktop.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Charger une Texture</string>
+   </property>
+   <property name="shortcut" >
+    <string>Shift+O</string>
+   </property>
+  </action>
+  <action name="actionQuit" >
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/actions/stop.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Quitter</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="menuRole" >
+    <enum>QAction::QuitRole</enum>
+   </property>
+  </action>
+  <action name="actionAfficher_Cacher_le_Rep_re" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/actions/viewmag+.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Afficher/Cacher le Repère</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionVider_la_Sc_ne" >
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/actions/reload.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Vider la Scène</string>
+   </property>
+   <property name="shortcut" >
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actionReset_Camera" >
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/apps/safari1.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Reset Caméra</string>
+   </property>
+   <property name="shortcut" >
+    <string>Home</string>
+   </property>
+  </action>
+  <action name="actionCr_e_un_billboard" >
+   <property name="text" >
+    <string>Crée un Billboard</string>
+   </property>
+  </action>
+  <action name="actionAfficher_Billboard" >
+   <property name="text" >
+    <string>Afficher un Billboard</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionTest" >
+   <property name="text" >
+    <string>test</string>
+   </property>
+  </action>
+  <action name="actionWireMode" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/apps/xeyes.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Mode Filaire/Plein</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionToggleFPS" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/mimetypes/txt.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Afficher/Cacher les FPS</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionActiver_Desactiver_VBO" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Activer/Désactiver VBO</string>
+   </property>
+   <property name="shortcut" >
+    <string>Shift+V</string>
+   </property>
+  </action>
+  <action name="actionViewport_1" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Gauche</string>
+   </property>
+  </action>
+  <action name="actionViewport_2" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Droite</string>
+   </property>
+  </action>
+  <action name="actionMode_fusion" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Mode Fusion</string>
+   </property>
+  </action>
+  <action name="actionBillboard" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/actions/billboard.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Créer un Billboard</string>
+   </property>
+   <property name="shortcut" >
+    <string>Shift+B</string>
+   </property>
+  </action>
+  <action name="actionBillboardCloud" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/actions/bbc.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Créer un Billboard Cloud</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionCharger" >
+   <property name="text" >
+    <string>Charger</string>
+   </property>
+  </action>
+  <action name="actionInformation_Objet" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/mimetypes/unknown.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Informations Objet</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionGauche" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/actions/back.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Gauche</string>
+   </property>
+   <property name="shortcut" >
+    <string>Left</string>
+   </property>
+  </action>
+  <action name="actionDroite" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/actions/forward.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Droite</string>
+   </property>
+   <property name="shortcut" >
+    <string>Right</string>
+   </property>
+  </action>
+  <action name="actionMode_Fusion" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Mode Fusion</string>
+   </property>
+   <property name="shortcut" >
+    <string>3</string>
+   </property>
+  </action>
+  <action name="actionMode_Normal" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Mode Normal</string>
+   </property>
+   <property name="shortcut" >
+    <string>1</string>
+   </property>
+  </action>
+  <action name="actionCharger_la_Densite" >
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/apps/densite.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Afficher la Densité</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionMode_SplitScreen" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Mode SplitScreen</string>
+   </property>
+   <property name="shortcut" >
+    <string>2</string>
+   </property>
+  </action>
+  <action name="actionDensiteTex3D" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Densité Texture 3D</string>
+   </property>
+  </action>
+  <action name="actionSauvegarder" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/devices/3floppy_unmount.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Sauvegarder</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSelecteur" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="application.qrc" >:/icones/mimetypes/image.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Cadre Fenêtre</string>
+   </property>
+   <property name="shortcut" >
+    <string>Space</string>
+   </property>
+  </action>
+  <action name="actionBoite_Englobante" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Boite Englobante</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="application.qrc" />
+ </resources>
+ <connections/>
+</ui>

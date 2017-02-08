@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>icones/actions/back.png</file>
+        <file>icones/actions/bbc.png</file>
+        <file>icones/actions/billboard.png</file>
+        <file>icones/actions/forward.png</file>
+        <file>icones/actions/reload.png</file>
+        <file>icones/actions/stop.png</file>
+        <file>icones/actions/viewmag+.png</file>
+        <file>icones/apps/densite.png</file>
+        <file>icones/apps/safari1.png</file>
+        <file>icones/apps/xeyes.png</file>
+        <file>icones/devices/3floppy_unmount.png</file>
+        <file>icones/filesystems/desktop.png</file>
+        <file>icones/filesystems/exec.png</file>
+        <file>icones/filesystems/folder.png</file>
+        <file>icones/filesystems/folder_home.png</file>
+        <file>icones/mimetypes/image.png</file>
+        <file>icones/mimetypes/sound.png</file>
+        <file>icones/mimetypes/txt.png</file>
+        <file>icones/mimetypes/unknown.png</file>
+        <file>icones/splashlogo.png</file>
+    </qresource>
+</RCC>
